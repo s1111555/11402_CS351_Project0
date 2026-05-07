@@ -1,16 +1,16 @@
-Start testing: May 07 13:58 台北標準時間
+Start testing: May 07 15:08 台北標準時間
 ----------------------------------------------------------
 1/1 Testing: TwoSumTests
 1/1 Test: TwoSumTests
 Command: "C:/Users/user/github clone/11402_CS351_Project0/build/twosum_test.exe"
 Directory: C:/Users/user/github clone/11402_CS351_Project0/build
-"TwoSumTests" start time: May 07 13:58 台北標準時間
+"TwoSumTests" start time: May 07 15:08 台北標準時間
 Output:
 ----------------------------------------------------------
 Running main() from C:\Users\user\github clone\11402_CS351_Project0\build\_deps\googletest-src\googletest\src\gtest_main.cc
-[==========] Running 8 tests from 2 test suites.
+[==========] Running 45 tests from 5 test suites.
 [----------] Global test environment set-up.
-[----------] 4 tests from TwoSumHashTableTests
+[----------] 6 tests from TwoSumHashTableTests
 [ RUN      ] TwoSumHashTableTests.NormalCase
 [       OK ] TwoSumHashTableTests.NormalCase (0 ms)
 [ RUN      ] TwoSumHashTableTests.NegativeNumbers
@@ -19,9 +19,13 @@ Running main() from C:\Users\user\github clone\11402_CS351_Project0\build\_deps\
 [       OK ] TwoSumHashTableTests.DuplicateValues (0 ms)
 [ RUN      ] TwoSumHashTableTests.NoSolution
 [       OK ] TwoSumHashTableTests.NoSolution (0 ms)
-[----------] 4 tests from TwoSumHashTableTests (0 ms total)
+[ RUN      ] TwoSumHashTableTests.ZeroValues
+[       OK ] TwoSumHashTableTests.ZeroValues (0 ms)
+[ RUN      ] TwoSumHashTableTests.LargeNumbers
+[       OK ] TwoSumHashTableTests.LargeNumbers (0 ms)
+[----------] 6 tests from TwoSumHashTableTests (0 ms total)
 
-[----------] 4 tests from TwoSumArrayTests
+[----------] 6 tests from TwoSumArrayTests
 [ RUN      ] TwoSumArrayTests.NormalCase
 [       OK ] TwoSumArrayTests.NormalCase (0 ms)
 [ RUN      ] TwoSumArrayTests.NegativeNumbers
@@ -30,17 +34,96 @@ Running main() from C:\Users\user\github clone\11402_CS351_Project0\build\_deps\
 [       OK ] TwoSumArrayTests.DuplicateValues (0 ms)
 [ RUN      ] TwoSumArrayTests.NoSolution
 [       OK ] TwoSumArrayTests.NoSolution (0 ms)
-[----------] 4 tests from TwoSumArrayTests (0 ms total)
+[ RUN      ] TwoSumArrayTests.ZeroValues
+[       OK ] TwoSumArrayTests.ZeroValues (0 ms)
+[ RUN      ] TwoSumArrayTests.LargeNumbers
+[       OK ] TwoSumArrayTests.LargeNumbers (0 ms)
+[----------] 6 tests from TwoSumArrayTests (0 ms total)
+
+[----------] 4 tests from TwoSumEdgeCases
+[ RUN      ] TwoSumEdgeCases.EmptyArray
+[       OK ] TwoSumEdgeCases.EmptyArray (0 ms)
+[ RUN      ] TwoSumEdgeCases.SingleElement
+[       OK ] TwoSumEdgeCases.SingleElement (0 ms)
+[ RUN      ] TwoSumEdgeCases.MinimumValidArray
+[       OK ] TwoSumEdgeCases.MinimumValidArray (0 ms)
+[ RUN      ] TwoSumEdgeCases.AllIdenticalElements
+[       OK ] TwoSumEdgeCases.AllIdenticalElements (0 ms)
+[----------] 4 tests from TwoSumEdgeCases (0 ms total)
+
+[----------] 1 test from TwoSumPerformance
+[ RUN      ] TwoSumPerformance.LargeArray
+[       OK ] TwoSumPerformance.LargeArray (5 ms)
+[----------] 1 test from TwoSumPerformance (5 ms total)
+
+[----------] 28 tests from TwoSumTests/TwoSumTestFixture
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/0
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/0 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/1
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/1 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/2
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/2 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/3
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/3 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/4
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/4 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/5
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/5 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/6
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/6 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/7
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/7 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/8
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/8 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/9
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/9 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/10
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/10 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/11
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/11 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/12
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/12 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/13
+[       OK ] TwoSumTests/TwoSumTestFixture.HashTableImplementation/13 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/0
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/0 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/1
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/1 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/2
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/2 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/3
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/3 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/4
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/4 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/5
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/5 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/6
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/6 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/7
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/7 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/8
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/8 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/9
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/9 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/10
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/10 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/11
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/11 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/12
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/12 (0 ms)
+[ RUN      ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/13
+[       OK ] TwoSumTests/TwoSumTestFixture.ArrayImplementation/13 (0 ms)
+[----------] 28 tests from TwoSumTests/TwoSumTestFixture (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 8 tests from 2 test suites ran. (0 ms total)
-[  PASSED  ] 8 tests.
+[==========] 45 tests from 5 test suites ran. (6 ms total)
+[  PASSED  ] 45 tests.
 <end of output>
-Test time =   1.40 sec
+Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"TwoSumTests" end time: May 07 13:58 台北標準時間
-"TwoSumTests" time elapsed: 00:00:01
+"TwoSumTests" end time: May 07 15:08 台北標準時間
+"TwoSumTests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: May 07 13:58 台北標準時間
+End testing: May 07 15:08 台北標準時間

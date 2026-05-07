@@ -242,4 +242,10 @@ CMakeFiles/twosum_test.dir/tests/twosum_test.cpp.obj: \
  C:/Users/user/GITHUB~1/11402_~1/build/_deps/GOOGLE~2/GOOGLE~2/include/gtest/gtest-typed-test.h \
  C:/Users/user/GITHUB~1/11402_~1/build/_deps/GOOGLE~2/GOOGLE~2/include/gtest/gtest_pred_impl.h \
  C:/Users/user/GITHUB~1/11402_~1/build/_deps/GOOGLE~2/GOOGLE~2/include/gtest/gtest_prod.h \
- C:/Users/user/GITHUB~1/11402_~1/src/twosum.h
+ C:/Users/user/GITHUB~1/11402_~1/src/twosum.h \
+ C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/algorithm \
+ C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/stl_algo.h \
+ C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/algorithmfwd.h \
+ C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/stl_heap.h \
+ C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/bits/uniform_int_dist.h \
+ C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/pstl/glue_algorithm_defs.h
