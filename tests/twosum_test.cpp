@@ -249,9 +249,11 @@ TEST(TwoSumPerformance, LargeArray) {
     }
 
     // Test case: last two elements
-    auto hash_result = hashSolver.twoSum(nums, 1998); // 999 + 999 = 1998
-    auto array_result = arraySolver.twoSum(nums, 1998);
+    auto hash_result = hashSolver.twoSum(nums, 1997); // 998 + 999 = 1997
+    auto array_result = arraySolver.twoSum(nums, 1997);
 
-    verifyTwoSumResult(nums, 1998, hash_result);
-    verifyTwoSumResult(nums, 1998, array_result);
+    EXPECT_FALSE(hash_result.empty());
+    EXPECT_FALSE(array_result.empty());
+    verifyTwoSumResult(nums, 1997, hash_result);
+    verifyTwoSumResult(nums, 1997, array_result);
 }

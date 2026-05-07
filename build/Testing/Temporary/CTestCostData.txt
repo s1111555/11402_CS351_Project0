@@ -1,2 +1,2 @@
-TwoSumTests 3 0.0081546
+TwoSumTests 5 0.00513296
 ---
