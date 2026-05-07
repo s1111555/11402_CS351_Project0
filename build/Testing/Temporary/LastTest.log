@@ -1,0 +1,46 @@
+Start testing: May 07 13:58 台北標準時間
+----------------------------------------------------------
+1/1 Testing: TwoSumTests
+1/1 Test: TwoSumTests
+Command: "C:/Users/user/github clone/11402_CS351_Project0/build/twosum_test.exe"
+Directory: C:/Users/user/github clone/11402_CS351_Project0/build
+"TwoSumTests" start time: May 07 13:58 台北標準時間
+Output:
+----------------------------------------------------------
+Running main() from C:\Users\user\github clone\11402_CS351_Project0\build\_deps\googletest-src\googletest\src\gtest_main.cc
+[==========] Running 8 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 4 tests from TwoSumHashTableTests
+[ RUN      ] TwoSumHashTableTests.NormalCase
+[       OK ] TwoSumHashTableTests.NormalCase (0 ms)
+[ RUN      ] TwoSumHashTableTests.NegativeNumbers
+[       OK ] TwoSumHashTableTests.NegativeNumbers (0 ms)
+[ RUN      ] TwoSumHashTableTests.DuplicateValues
+[       OK ] TwoSumHashTableTests.DuplicateValues (0 ms)
+[ RUN      ] TwoSumHashTableTests.NoSolution
+[       OK ] TwoSumHashTableTests.NoSolution (0 ms)
+[----------] 4 tests from TwoSumHashTableTests (0 ms total)
+
+[----------] 4 tests from TwoSumArrayTests
+[ RUN      ] TwoSumArrayTests.NormalCase
+[       OK ] TwoSumArrayTests.NormalCase (0 ms)
+[ RUN      ] TwoSumArrayTests.NegativeNumbers
+[       OK ] TwoSumArrayTests.NegativeNumbers (0 ms)
+[ RUN      ] TwoSumArrayTests.DuplicateValues
+[       OK ] TwoSumArrayTests.DuplicateValues (0 ms)
+[ RUN      ] TwoSumArrayTests.NoSolution
+[       OK ] TwoSumArrayTests.NoSolution (0 ms)
+[----------] 4 tests from TwoSumArrayTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 8 tests from 2 test suites ran. (0 ms total)
+[  PASSED  ] 8 tests.
+<end of output>
+Test time =   1.40 sec
+----------------------------------------------------------
+Test Passed.
+"TwoSumTests" end time: May 07 13:58 台北標準時間
+"TwoSumTests" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: May 07 13:58 台北標準時間
