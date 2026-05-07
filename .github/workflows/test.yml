@@ -1,0 +1,176 @@
+name: CMake GTest CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  build-and-test:
+    name: Build and Test (${{ matrix.os }}, ${{ matrix.compiler }})
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Ubuntu with GCC
+          - os: ubuntu-latest
+            compiler: gcc
+            cc: gcc
+            cxx: g++
+          # Ubuntu with Clang
+          - os: ubuntu-latest
+            compiler: clang
+            cc: clang
+            cxx: clang++
+          # Windows with MSVC
+          - os: windows-latest
+            compiler: msvc
+            cc: cl
+            cxx: cl
+          # macOS with Clang
+          - os: macos-latest
+            compiler: clang
+            cc: clang
+            cxx: clang++
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python (for CMake)
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install CMake (Ubuntu)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake
+
+      - name: Install CMake (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          brew install cmake
+
+      - name: Install CMake (Windows)
+        if: runner.os == 'Windows'
+        uses: lukka/get-cmake@latest
+
+      - name: Configure CMake
+        run: |
+          cmake -S . -B build \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_C_COMPILER=${{ matrix.cc }} \
+            -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} \
+            -DCMAKE_CXX_STANDARD=17 \
+            -DCMAKE_CXX_STANDARD_REQUIRED=ON
+
+      - name: Build tests
+        run: |
+          cmake --build build --config Release --parallel
+
+      - name: Run unit tests
+        run: |
+          cd build
+          ctest --output-on-failure --verbose
+
+      - name: Generate test report
+        if: runner.os == 'Linux'
+        run: |
+          cd build
+          ctest --output-junit test_results.xml || true
+
+      - name: Upload test results
+        if: runner.os == 'Linux' && always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results-${{ matrix.os }}-${{ matrix.compiler }}
+          path: build/test_results.xml
+          if-no-files-found: warn
+
+  code-quality:
+    name: Code Quality Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install CMake and build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake build-essential clang-format clang-tidy
+
+      - name: Configure CMake for analysis
+        run: |
+          cmake -S . -B build \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DCMAKE_CXX_CLANG_TIDY=clang-tidy \
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+      - name: Run clang-tidy
+        run: |
+          cd build
+          make 2>&1 | tee clang-tidy.log || true
+
+      - name: Check code formatting
+        run: |
+          find src tests -name "*.cpp" -o -name "*.h" | xargs clang-format --dry-run --Werror --style=file || true
+
+      - name: Upload analysis results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-analysis-results
+          path: |
+            build/clang-tidy.log
+          if-no-files-found: warn
+
+  coverage:
+    name: Code Coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake build-essential lcov
+
+      - name: Configure CMake with coverage
+        run: |
+          cmake -S . -B build \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DCMAKE_CXX_FLAGS="--coverage" \
+            -DCMAKE_EXE_LINKER_FLAGS="--coverage"
+
+      - name: Build tests
+        run: |
+          cmake --build build --parallel
+
+      - name: Run tests with coverage
+        run: |
+          cd build
+          ctest --output-on-failure
+
+      - name: Generate coverage report
+        run: |
+          cd build
+          lcov --capture --directory . --output-file coverage.info
+          lcov --remove coverage.info '/usr/*' '*/_deps/*' --output-file coverage.info
+          lcov --list coverage.info
+
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@v3
+        with:
+          file: build/coverage.info
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false

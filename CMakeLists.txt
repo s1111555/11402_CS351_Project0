@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.14)
+project(TwoSumProject LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+enable_testing()
+
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+)
+FetchContent_MakeAvailable(googletest)
+
+add_executable(twosum_test
+  tests/twosum_test.cpp
+  src/twosum.cpp
+)
+
+target_include_directories(twosum_test PRIVATE ${CMAKE_SOURCE_DIR}/src)
+target_link_libraries(twosum_test PRIVATE GTest::gtest_main)
+add_test(NAME TwoSumTests COMMAND twosum_test)
